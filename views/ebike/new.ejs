@@ -1,0 +1,16 @@
+<% include ../partials/header %>
+<header class="jumbotron-custom">
+    <form action="/ebike" method="post">
+        <input class="form-input" name="model" type="text" placeholder="Model"></input>
+        <input class="form-input" name="brand" type="text" placeholder="Brand"></input>
+        <input class="form-input" name="power" type="number" placeholder="Engine power [W]"></input>
+        <select class="form-input" name="bikeClass">
+            <option value="pedalAssist">Pedal assist</option>
+            <option value="throttle">Hand-Throttle</option>
+            <option value="other">Other</option>
+        </select>
+        <input class="form-input" name="picture" type="text" placeholder="Picture link"></input>
+        <button class="form-button">add new e-bike</button>
+    </form>
+</header>
+<% include ../partials/footer %>

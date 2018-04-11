@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+<header class="jumbotron-custom">
+    <h1><%= foundEbike.model %></h1>
+    <h4><%= foundEbike.brand %></h4><br>
+    Submitted by: <strong><%= foundEbike.author.username %></strong>
+</header>
+
+<div class="jumbotron-custom">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <img class="img-responsive" src="<%= foundEbike.picture %>">
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <h3>Bicyle Details</h3>
+            <hr class="hr-custom">
+            <p><b>MANUFACTURER:</b> <%= foundEbike.brand %></p>
+            <p><b>MODEL:</b> <%= foundEbike.model %></p>
+            <p><b>POWER:</b> <%= foundEbike.power %> W</p>
+            <p><b>BIKE CLASS:</b> <%= foundEbike.bikeClass %></p>
+            <br>
+            <% if(currentUser && foundEbike.author.id.equals(currentUser._id)) { %>
+            <a class="btn btn-warning" href="/ebike/<%= foundEbike._id %>/edit">EDIT</a>
+            <form class="button-inline" action="/ebike/<%= foundEbike._id %>?_method=DELETE" method="post">
+            <button class="btn btn-danger">DELETE</button>
+            </form>
+            <% } %>
+        </div>
+    </div>
+</div>
+<div class="jumbotron-custom jumbotron-custom-comment">
+    <a class="form-button" href="/ebike/<%= foundEbike._id %>/posts/new">Add a comment</a>
+</div>    
+        <% foundEbike.posts.reverse().forEach(function(post){ %>
+<div class="jumbotron-custom jumbotron-custom-comment">
+    <strong><%= post.text %></strong> - <%= post.author.username %>
+</div>
+        <% }); %>
+    
+<% include ../partials/footer %>

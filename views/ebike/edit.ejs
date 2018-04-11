@@ -1,0 +1,16 @@
+<% include ../partials/header %>
+<header class="jumbotron-custom">
+    <form action="/ebike/<%= editEbike._id %>?_method=PUT" method="POST">
+        <input class="form-input" name="ebike[model]" type="text" placeholder="Model" value="<%= editEbike.model %>"></input>
+        <input class="form-input" name="ebike[brand]" type="text" placeholder="Brand" value="<%= editEbike.brand %>"></input>
+        <input class="form-input" name="ebike[power]" type="number" value="<%= editEbike.power %>" placeholder="Engine power [W]"></input>
+        <select class="form-input" name="ebike[bikeClass]">
+            <option value="pedalAssist">Pedal assist</option>
+            <option value="throttle">Hand-Throttle</option>
+            <option value="other">Other</option>
+        </select>
+        <input class="form-input" name="ebike[picture]" type="text" placeholder="Picture link" value="<%= editEbike.picture %>"></input>
+        <button class="form-button">Edit</button>
+    </form>
+</header>
+<% include ../partials/footer %>

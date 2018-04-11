@@ -1,0 +1,22 @@
+<% include ../partials/header %>
+<header class="jumbotron-custom">
+    <h1>E-BIKES</h1>
+</header>
+
+<div class="jumbotron-custom">
+    <div class="row row-custom">
+    <% ebikes.forEach(function(ebike){ %> 
+        <div class="col-md-3 col-sm-6">
+            <a href="/ebike/<%= ebike.id %>">  
+                <div class="thumbnail">
+                    <img src="<%= ebike.picture %>">
+                    <div class="caption">
+                        <h4><%= ebike.model %></h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <% }); %>   
+    </div>
+</div>
+<% include ../partials/footer %>
